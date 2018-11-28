@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-heal36",
+      "appliesTo": "wpf-gh/Resources/heal36.png",
+      "type": "launch"
+    }
+  ]
+}

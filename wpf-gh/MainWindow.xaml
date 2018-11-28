@@ -1,0 +1,536 @@
+﻿<Window x:Class="wpf_gh.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_gh"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1650">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF641900" Offset="1"/>
+                <GradientStop Color="#FFDC4017" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+
+
+        <StackPanel x:Name="RoundPanel" Margin="780,10,0,0" Orientation="Horizontal" Height="20" VerticalAlignment="Top">
+            <Button x:Name="PrevRoundButton" Width="20" Height="20" Click="PrevRoundClicked">
+                <TextBlock x:Name="RoundMinus" Text="-" Margin="0,-8,0,0" FontSize="20" />
+            </Button>
+            <TextBlock x:Name="RoundCount" Text="Round 1" FontSize="20" FontFamily="Franklin Gothic Medium" Width="90"/>
+            <Button x:Name="NextRoundButton" FontSize="20" Width="20" Height="20" Click="NextRoundClicked">
+                <TextBlock x:Name="RoundPlus" Text="+" Margin="0,-8,0,0" FontSize="20" />
+            </Button>
+        </StackPanel>
+
+        <ComboBox x:Name="MonsterList1" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Rending Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <ComboBox x:Name="DungeonLevel" Margin="0,10,10,0" VerticalAlignment="Top" IsDropDownOpen="True" HorizontalAlignment="Right" Width="120" SelectionChanged="LevelChanged">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+        </ComboBox>
+        <TextBlock x:Name="Difficulty" Margin="0,10,140,0" TextWrapping="Wrap" Text="Difficulty:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="22" Width="60" FontSize="14"/>
+        <CheckBox x:Name="LockDifficulty" Content="Lock" HorizontalAlignment="Right" Margin="0,13,210,0" VerticalAlignment="Top" Checked="DifficultyLocked" Unchecked="DifficultyLocked"/>
+        <CheckBox x:Name="LockMonster1" Content="Lock" HorizontalAlignment="Left" Margin="135,42,0,0" VerticalAlignment="Top" Checked="Monster1Locked" Unchecked="Monster1Locked"/>
+        <TextBlock x:Name="Monster1" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap" FontFamily="Algerian" Text="Monster 1" VerticalAlignment="Top" Width="266" FontSize="20"/>
+
+        <ComboBox x:Name="MonsterList2" HorizontalAlignment="Left" Margin="276,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Vicious Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <CheckBox x:Name="LockMonster2" Content="Lock" HorizontalAlignment="Left" Margin="401,42,0,0" VerticalAlignment="Top" Checked="Monster2Locked" Unchecked="Monster2Locked"/>
+        <TextBlock x:Name="Monster2" HorizontalAlignment="Left" Height="23" Margin="276,66,0,0" FontFamily="Algerian" TextWrapping="Wrap" Text="Monster 2" VerticalAlignment="Top" Width="266" FontSize="20"/>
+
+        <ComboBox x:Name="MonsterList3" HorizontalAlignment="Left" Margin="542,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Vicious Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <CheckBox x:Name="LockMonster3" Content="Lock" HorizontalAlignment="Left" Margin="667,42,0,0" VerticalAlignment="Top" Checked="Monster3Locked" Unchecked="Monster3Locked"/>
+        <TextBlock x:Name="Monster3" HorizontalAlignment="Left" Height="23" Margin="542,66,0,0" TextWrapping="Wrap" Text="Monster 3" VerticalAlignment="Top" Width="266" FontFamily="Algerian" FontSize="20"/>
+
+        <ComboBox x:Name="MonsterList4" HorizontalAlignment="Left" Margin="808,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Vicious Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <CheckBox x:Name="LockMonster4" Content="Lock" HorizontalAlignment="Left" Margin="933,42,0,0" VerticalAlignment="Top" Checked="Monster4Locked" Unchecked="Monster4Locked"/>
+        <TextBlock x:Name="Monster4" HorizontalAlignment="Left" Height="23" Margin="808,66,0,0" TextWrapping="Wrap" Text="Monster 4" VerticalAlignment="Top" Width="266" FontFamily="Algerian" FontSize="20"/>
+
+        <ComboBox x:Name="MonsterList5" HorizontalAlignment="Left" Margin="1076,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Vicious Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <CheckBox x:Name="LockMonster5" Content="Lock" HorizontalAlignment="Left" Margin="1199,42,0,0" VerticalAlignment="Top" Checked="Monster5Locked" Unchecked="Monster5Locked"/>
+        <TextBlock x:Name="Monster5" HorizontalAlignment="Left" Height="23" Margin="1076,66,0,0" TextWrapping="Wrap" Text="Monster 5" VerticalAlignment="Top" Width="266" FontFamily="Algerian" FontSize="20"/>
+
+        <ComboBox x:Name="MonsterList6" HorizontalAlignment="Left" Margin="1340,39,0,0" VerticalAlignment="Top" Width="120" IsDropDownOpen="True">
+            <ComboBoxItem Content="Bandit Guard (6)"/>
+            <ComboBoxItem Content="Bandit Archer (6)"/>
+            <ComboBoxItem Content="City Guard (6)"/>
+            <ComboBoxItem Content="City Archer (6)"/>
+            <ComboBoxItem Content="Inox Guard (6)"/>
+            <ComboBoxItem Content="Inox Archer (6)"/>
+            <ComboBoxItem Content="Inox Shaman (4)"/>
+            <ComboBoxItem Content="Vermling Scout (10)"/>
+            <ComboBoxItem Content="Vermling Shaman (6)"/>
+            <ComboBoxItem Content="Living Bones (10)"/>
+            <ComboBoxItem Content="Living Corpse (6)"/>
+            <ComboBoxItem Content="Living Spirit (6)"/>
+            <ComboBoxItem Content="Cultist (6)"/>
+            <ComboBoxItem Content="Flame Demon (6)"/>
+            <ComboBoxItem Content="Frost Demon (6)"/>
+            <ComboBoxItem Content="Earth Demon (6)"/>
+            <ComboBoxItem Content="Wind Demon (6)"/>
+            <ComboBoxItem Content="Night Demon (6)"/>
+            <ComboBoxItem Content="Sun Demon (6)"/>
+            <ComboBoxItem Content="Ooze (10)"/>
+            <ComboBoxItem Content="Giant Viper (10)"/>
+            <ComboBoxItem Content="Forest Imp (10)"/>
+            <ComboBoxItem Content="Hound (6)"/>
+            <ComboBoxItem Content="Cave Bear (4)"/>
+            <ComboBoxItem Content="Stone Golem (6)"/>
+            <ComboBoxItem Content="Ancient Artillery (6)"/>
+            <ComboBoxItem Content="Vicious Drake (6)"/>
+            <ComboBoxItem Content="Spitting Drake (6)"/>
+            <ComboBoxItem Content="Lurker (6)"/>
+            <ComboBoxItem Content="Savvas Icestorm (4)"/>
+            <ComboBoxItem Content="Savvas Lavaflow (4)"/>
+            <ComboBoxItem Content="Harrower Infester (4)"/>
+            <ComboBoxItem Content="Deep Terror (10)"/>
+            <ComboBoxItem Content="Black Imp (10)"/>
+        </ComboBox>
+        <CheckBox x:Name="LockMonster6" Content="Lock" HorizontalAlignment="Left" Margin="1465,42,0,0" VerticalAlignment="Top" Checked="Monster6Locked" Unchecked="Monster6Locked"/>
+        <TextBlock x:Name="Monster6" HorizontalAlignment="Left" Height="23" Margin="1340,66,0,0" TextWrapping="Wrap" Text="Monster 6" VerticalAlignment="Top" Width="266" FontFamily="Algerian" FontSize="20"/>
+
+
+        <local:StatPanel x:Name="StatPanel1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+
+        <local:StatPanel x:Name="StatPanel2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster21" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar21" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel21" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster27" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar27" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel27" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster29" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar29" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel29" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster210" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar210" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel210" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+
+        <local:StatPanel x:Name="StatPanel3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster31" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar31" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel31" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster34" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar34" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel34" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster36" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar36" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel36" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster37" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar37" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel37" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster38" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar38" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel38" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster39" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar39" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel39" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster310" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="542,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar310" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel310" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+
+        <local:StatPanel x:Name="StatPanel4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster43" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar43" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel43" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster44" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar44" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel44" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster46" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar46" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel46" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster47" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar47" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel47" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster49" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar49" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel49" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster410" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="808,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar410" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="841,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel410" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="924,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+
+        <local:StatPanel x:Name="StatPanel5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster52" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar52" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel52" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster53" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar53" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel53" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster54" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar54" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel54" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster55" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar55" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel55" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster56" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar56" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel56" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster57" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar57" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel57" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster59" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar59" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel59" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster510" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1074,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar510" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1107,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel510" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1190,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+
+        <local:StatPanel x:Name="StatPanel6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,98,0,0"/>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster61" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,540,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar61" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,540,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel61" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,540,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster62" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,568,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar62" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,568,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel62" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,568,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster63" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,596,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar63" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,596,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel63" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,596,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster64" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,624,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar64" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,624,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel64" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,624,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,652,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,652,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,652,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster66" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,680,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar66" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,680,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel66" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,680,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster67" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,708,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar67" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,708,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel67" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,708,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster68" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,736,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar68" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,736,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel68" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,736,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,764,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,764,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,764,0,0" Height="20" Width="140"></local:EffectPanel>
+
+        <local:SpawnDestroyMonster x:Name="SpawnDestroyMonster610" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1340,792,0,0"></local:SpawnDestroyMonster>
+        <local:HealthBar x:Name="HealthBar610" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1373,792,0,0"></local:HealthBar>
+        <local:EffectPanel x:Name="EffectPanel610" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1456,792,0,0" Height="20" Width="140"></local:EffectPanel>
+
+    </Grid>
+</Window>

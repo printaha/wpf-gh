@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="wpf_gh.StatPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpf_gh"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="NormalText" Margin="0,5,0,0" Text="Normal" VerticalAlignment="Top" Background="Transparent" Foreground="Black" FontSize="18" Width="216"/>
+            <Image x:Name="Flying" Opacity="0.25" Source="/Properties/fly.png"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,36,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <Image x:Name="Curse" Opacity="0.25" Source="/Properties/curse36.png"/>
+            <Image x:Name="Disarm" Opacity="0.25" Source="/Properties/disarm36.png"/>
+            <Image x:Name="Immobilize" Opacity="0.25" Source="/Properties/immobilize36.png"/>
+            <Image x:Name="Muddle" Opacity="0.25" Source="/Properties/muddle36.png"/>
+            <Image x:Name="Poison" Opacity="0.25" Source="/Properties/poison36.png"/>
+            <Image x:Name="Stun" Opacity="0.25" Source="/Properties/stun36.png"/>
+            <Image x:Name="Wound" Opacity="0.25" Source="/Properties/wound36.png"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="EliteText" Margin="0,5,0,0" Text="Elite" VerticalAlignment="Top" Background="Transparent" Foreground="Black" FontSize="18" Width="216"/>
+            <Image x:Name="EFlying" Opacity="0.25" Source="/Properties/fly.png"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,108,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <Image x:Name="ECurse" Opacity="0.25" Source="/Properties/curse36.png"/>
+            <Image x:Name="EDisarm" Opacity="0.25" Source="/Properties/disarm36.png"/>
+            <Image x:Name="EImmobilize" Opacity="0.25" Source="/Properties/immobilize36.png"/>
+            <Image x:Name="EMuddle" Opacity="0.25" Source="/Properties/muddle36.png"/>
+            <Image x:Name="EPoison" Opacity="0.25" Source="/Properties/poison36.png"/>
+            <Image x:Name="EStun" Opacity="0.25" Source="/Properties/stun36.png"/>
+            <Image x:Name="EWound" Opacity="0.25" Source="/Properties/wound36.png"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,144,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="RetaliateStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Retaliate" Opacity="0.25" Source="/Properties/retaliate.png" Width="36" Height="36"/>
+            <TextBlock x:Name="ERetaliateStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,180,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="PierceStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Pierce" Opacity="0.25" Source="/Properties/pierce.png" Width="36" Height="36"/>
+            <TextBlock x:Name="EPierceStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,216,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="TargetsStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Targets" Opacity="0.25" Source="/Properties/target.png" Width="36" Height="36"/>
+            <TextBlock x:Name="ETargetsStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,252,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="ShieldStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Shield" Opacity="0.25" Source="/Properties/shield.png" Width="36" Height="36"/>
+            <TextBlock x:Name="EShieldStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,288,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="HealthStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Health" Opacity="1" Source="/Properties/heal36.png" Width="36" Height="36"/>
+            <TextBlock x:Name="EHealthStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,324,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="MoveStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Move" Opacity="1" Source="/Properties/move.png" Width="36" Height="36"/>
+            <TextBlock x:Name="EMoveStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,360,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="AttackStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Attack" Opacity="1" Source="/Properties/attack.png" Width="36" Height="36"/>
+            <TextBlock x:Name="EAttackStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,396,0,0" Background="Transparent" Orientation="Horizontal" Width="252" Height="36">
+            <TextBlock x:Name="RangeStat" Text="" Margin="0,5,0,0" TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="108" Height="36"/>
+            <Image x:Name="Range" Opacity="1" Source="/Properties/range.png" Width="36" Height="36"/>
+            <TextBlock x:Name="ERangeStat" Text="" Margin="0,5,0,0" TextAlignment="Center" FontSize="18" Width="108" Height="36"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
