@@ -30,7 +30,6 @@ namespace wpf_gh
             if (!SpawnDestroyPopup.IsOpen) { SpawnDestroyPopup.IsOpen = true; }
             else { SpawnDestroyPopup.IsOpen = false; }
             Button source = e.Source as Button;
-            //string source_name = source.Name;
             int row = 0;
             int column = 0;
 
@@ -39,7 +38,6 @@ namespace wpf_gh
             DependencyObject grandgrandparent = VisualTreeHelper.GetParent(grandparent);
             DependencyObject grandgrandgrandparent = VisualTreeHelper.GetParent(grandgrandparent);
             string source_name = (string)grandgrandgrandparent.GetValue(NameProperty);
-            //IsAncestorOf(source);
             if (source_name.Last().ToString().Equals("0"))
             {
                 row = 10;

@@ -89,59 +89,6 @@ namespace wpf_gh
             SpawnDestroyMonster69.MonsterNumberText.Text = "9";
             SpawnDestroyMonster610.MonsterNumberText.Text = "10";
         }
-        /*
-        public void SetHealth(Button source, Boolean elite)
-        {
-            string source_name = source.Name;
-            int source_name_length = source_name.Length;
-            int row;
-            int column;
-            string health_bar_name = "HealthBar";
-            string stat_panel_name = "StatPanel";
-            
-            if (source_name.Last().Equals("0"))
-            {
-                row = 10;
-                if (Int32.TryParse(source_name[source_name_length - 3].ToString(), out column))
-                {
-                    health_bar_name += column;
-                    health_bar_name += row;
-                    stat_panel_name += column;
-                    if (elite)
-                    {
-                        string elite_health = UITools.FindChild<StatPanel>(this, stat_panel_name).EHealthStat.Text;
-                        UITools.FindChild<HealthBar>(this, health_bar_name).MaxHealth.Text = elite_health;
-                    } else
-                    {
-                        string normal_health = UITools.FindChild<StatPanel>(this, stat_panel_name).HealthStat.Text;
-                        UITools.FindChild<HealthBar>(this, health_bar_name).MaxHealth.Text = normal_health;
-                    }
-                }
-            }
-            else
-            {
-                if (Int32.TryParse(source_name[source_name_length - 1].ToString(), out row))
-                {
-                    health_bar_name += row;
-                    if (Int32.TryParse(source_name[source_name_length - 2].ToString(), out column))
-                    {
-                        health_bar_name += column;
-                        stat_panel_name += column;
-                        if (elite)
-                        {
-                            string elite_health = UITools.FindChild<StatPanel>(this, stat_panel_name).EHealthStat.Text;
-                            UITools.FindChild<HealthBar>(this, health_bar_name).MaxHealth.Text = elite_health;
-                        }
-                        else
-                        {
-                            string normal_health = UITools.FindChild<StatPanel>(this, stat_panel_name).HealthStat.Text;
-                            UITools.FindChild<HealthBar>(this, health_bar_name).MaxHealth.Text = normal_health;
-                        }
-                    };
-                }
-            }
-        }
-        */
 
         private void Monster1Locked(object sender, RoutedEventArgs e)
         {
@@ -215,7 +162,6 @@ namespace wpf_gh
                 else { StatPanel1.Wound.Opacity = 0.25; }
                 if (attributes_elite.Contains("wound")) { StatPanel1.EWound.Opacity = 1; }
                 else { StatPanel1.EWound.Opacity = 0.25; }
-                //IJEnumerable<JToken> attrs = j_attributes_normal.Values();
                 List<string> attr_strings_normal = new List<string>();
                 foreach (var value in j_attributes_normal.Children())
                 {
@@ -1793,10 +1739,5 @@ namespace wpf_gh
             if (GlobalRound < 100) GlobalRound += 1;
             RoundCount.Text = "Round " + GlobalRound;
         }
-
-        ///        private void Monster1Changed(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        ///        {
-        ///        Monster1.Text = MonsterList1.Text;
-        ///        }
     }
 }
